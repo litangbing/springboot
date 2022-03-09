@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+      <span th:text="${data}"></span>
+      <span th:text="${data}"></span>
+呵呵呵呵
+      <div th:text="${data}"></div>
+      <div th:text="${data}"></div>
+
+<form th:action="@{'/user/login?id='+${user.id}}">
+    <input th:type="text" th:id="userName" th:name="userName" th:placeholder="姓名" th:value="${user.name}">在文本框内
+    <br>
+
+    <input type="text" id="realName" name="reaName" th:text="${user.name}">       在文本框外
+</form>
+      <div th:text="${user.id}"></div>
+
+<span th:id="${user.id}">aaa</span>
+
+
+      <h1>th:onclick 的使用</h1>
+      <!--目前 thymeleaf 版本要求只能传递数字和布尔值-->
+      <a th:onclick="'show('+${user.id}+')'" th:style="'font-size:20px;color:red;'" >点击：显示学生编号</a>
+      <script type="text/javascript">
+          function show(id) {
+              alert("用户编号为：" + id);
+          }
+      </script>
+
+<br><br>
+<span th:attr="zhangsan=${user.name}">th:attr赋值</span>
+</body>
+</html>
